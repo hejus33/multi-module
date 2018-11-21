@@ -9,6 +9,11 @@ const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
+
+// recoding env variable
+process.env.MODULE_NAME = process.argv[2]
+process.env.ASSETS_ROOT = path.resolve(__dirname, '..', 'dist', process.env.MODULE_NAME)
+
 const webpackConfig = require('./webpack.prod.conf')
 
 const spinner = ora('building for production...')
